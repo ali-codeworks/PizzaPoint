@@ -8,7 +8,7 @@ const FRAME_COUNT = 120;
 
 const getFramePath = (index: number) => {
   const num = index.toString().padStart(3, "0");
-  return `/src/assets/frames/frame_${num}.png`;
+  return `/frames/frame_${num}.png`;
 };
 
 const TEXT_SECTIONS = [
