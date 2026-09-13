@@ -5,10 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 120;
+const PRIORITY_COUNT = 15;
+const CANVAS_WIDTH = 960;
+const CANVAS_HEIGHT = 540;
 
 const getFramePath = (index: number) => {
   const num = index.toString().padStart(3, "0");
-  return `/frames/frame_${num}.png`;
+  return `/frames/frame_${num}.jpg`;
 };
 
 const TEXT_SECTIONS = [
@@ -74,27 +77,32 @@ function ScrollVideo() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    canvas.width = 1280;
-    canvas.height = 720;
+    canvas.width = CANVAS_WIDTH;
+    canvas.height = CANVAS_HEIGHT;
 
     const images: HTMLImageElement[] = new Array(FRAME_COUNT);
-    let settledCount = 0;
-
-    const settle = () => {
-      settledCount++;
-      if (settledCount === FRAME_COUNT) {
-        setLoaded(true);
-      }
-    };
+    let priorityLoaded = 0;
 
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
       img.src = getFramePath(i);
-      img.onload = () => {
-        if (i === 1) drawFrame(1);
-        settle();
-      };
-      img.onerror = () => settle();
+
+      if (i <= PRIORITY_COUNT) {
+        img.onload = () => {
+          if (i === 1) drawFrame(1);
+          priorityLoaded++;
+          if (priorityLoaded === PRIORITY_COUNT) {
+            setLoaded(true);
+          }
+        };
+        img.onerror = () => {
+          priorityLoaded++;
+          if (priorityLoaded === PRIORITY_COUNT) {
+            setLoaded(true);
+          }
+        };
+      }
+
       images[i - 1] = img;
     }
     imagesRef.current = images;
