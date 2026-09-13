@@ -1,0 +1,85 @@
+PROJECT: Landing Page for "AI Voice-to-Blog" (fictional AI SaaS)
+GOAL: Personal showcase project to demonstrate scroll-based animation skills.
+
+=====================================================
+PRODUCT CONCEPT
+=====================================================
+Name: AI Voice-to-Blog (fictional SaaS)
+Core idea: User speaks/records their voice, and the AI converts it into a
+polished, formatted blog article/post automatically.
+Single focused feature — no multi-feature dashboard, keep it simple and visual.
+
+=====================================================
+CORE ANIMATION STYLE REQUIRED
+=====================================================
+This is NOT a real video. It is a SCROLL-SCRUBBED IMAGE SEQUENCE.
+
+Technique: A large set of sequential images (frames) of an object/animation
+are pre-rendered. As the user scrolls, the scroll position is mapped to a
+frame index, and that frame is drawn on an HTML canvas. Scrolling forward
+shows the next frame, scrolling back shows the previous frame — this creates
+the illusion of controlling a video with the scrollbar.
+
+Two reference examples given by the user:
+1. HEADPHONE EXAMPLE: Scroll causes the headphone's outer shell to open up /
+   explode apart, revealing internal components/mechanism layer by layer as
+   you keep scrolling. (Exploded-view / cross-section reveal style)
+
+2. SHOES EXAMPLE: Scroll causes the shoe to rotate 360 degrees — showing
+   front, side, back, and other angles — like scrubbing through a product
+   rotation video, purely by scrolling.
+
+Both are achieved using the SAME core technique: scroll-scrubbed PNG frame
+sequence rendered on canvas.
+
+=====================================================
+HOW THIS APPLIES TO "AI VOICE-TO-BLOG"
+=====================================================
+Hero section concept: A visual object (e.g. a mic / waveform / phone with
+waveform) that transforms as the user scrolls — similar to how the headphone
+opens up or the shoe rotates. Here the transformation is:
+Voice waveform --> waveform turning into text lines --> text settling into
+a polished blog post layout.
+
+Suggested frame breakdown (approx. 90-120 total frames):
+- Phase 1 (frames 1-30): Waveform / mic visual, voice being recorded
+- Phase 2 (frames 31-70): Waveform morphing/transforming into text
+- Phase 3 (frames 71-100+): Text settling into a clean, formatted blog layout
+
+=====================================================
+IMAGE/FRAME REQUIREMENTS
+=====================================================
+- Recommended frame count: 90-120 PNG frames for this hero animation
+  (60-80 = basic/short animation, 100-120 = standard smooth professional
+  quality similar to Apple-style product pages, 150+ = very detailed but
+  heavier load time)
+- Frames need to be rendered externally (e.g. via Blender/After Effects/
+  Spline for 3D, or After Effects/2D animation tools for 2D), then exported
+  as a numbered PNG sequence.
+- These are NOT hand-drawn individually — they come from an animation
+  render/export pipeline.
+
+=====================================================
+TECH APPROACH (for build phase, once assets are ready)
+=====================================================
+- Frame sequence playback: HTML5 Canvas + requestAnimationFrame, frames
+  preloaded, correct frame drawn based on scroll position.
+- Scroll-triggering library: GSAP ScrollTrigger (industry standard for this
+  exact effect) or Framer Motion with useScroll as an alternative.
+- Section pinning: GSAP ScrollTrigger's pin:true feature for keeping a
+  section fixed while its internal animation plays out via scroll.
+
+=====================================================
+OVERALL LANDING PAGE SECTION PLAN (draft)
+=====================================================
+1. Hero — scroll-scrubbed frame sequence (voice -> text -> blog transformation)
+2. Problem statement section
+3. Feature reveal (pinned section, dashboard/output mockup)
+4. Horizontal scroll section — use cases
+5. Stats section — animated counters on scroll into view
+6. Integrations/logos section — fade-in grid
+7. CTA / waitlist section — simple fade-in with button
+
+STATUS: Core product concept and hero animation technique finalized.
+Next step: decide exact visual design of the object/animation and begin
+frame asset creation.
