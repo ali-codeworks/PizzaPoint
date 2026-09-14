@@ -2,6 +2,12 @@
 
 A scroll-driven animated pizza website built with React, TypeScript, and GSAP ScrollTrigger. A 120-frame canvas sequence plays in sync with scroll position, creating a smooth cinematic effect without using a video file.
 
+## Demo
+
+https://github.com/ali-codeworks/PizzaPoint/assets/demo.mp4
+
+Or [watch the video directly](./demo.mp4).
+
 ## Live Demo
 
 [pizzapoint-client.vercel.app](https://pizzapoint-client.vercel.app)
@@ -19,15 +25,15 @@ As the user scrolls, the page progress is mapped to a frame index (1–120), whi
 
 ## Getting Started
 
-\`\`\`bash
+```bash
 cd client
 npm install
 npm run dev
-\`\`\`
+```
 
 ## Folder Structure
 
-\`\`\`
-client/ # React app
-frames/ # Sequence of JPG frames used for canvas animation
-\`\`\`
+```
+client/       # React app
+frames/       # Sequence of JPG frames used for canvas animation
+```
